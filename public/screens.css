@@ -1,0 +1,159 @@
+/* Fake screens. Everything lives inside #fake, which covers the viewport. */
+#fake {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  cursor: none;
+  user-select: none;
+  overflow: hidden;
+  background: #000;
+}
+#fake.on { display: block; }
+#fake * { cursor: none !important; }
+.scr { position: absolute; inset: 0; overflow: hidden; font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; }
+.black { background: #000; }
+
+/* 1 update ---------------------------------------------------------------- */
+.upd { background: radial-gradient(circle at 50% 40%, #0b6fc7, #064a8c); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.upd p { margin: 0; }
+.upd .t1 { font-size: clamp(24px, 3.2vw, 40px); margin-top: 38px; }
+.upd .t2 { font-size: clamp(22px, 2.8vw, 34px); margin-top: 14px; }
+.upd .t3 { font-size: clamp(18px, 2vw, 26px); margin-top: 36px; opacity: 0.92; }
+.spin { position: relative; width: 64px; height: 64px; }
+.spin i { position: absolute; inset: 0; animation: orbit 2.9s cubic-bezier(0.2, 0.7, 0.7, 0.3) infinite; opacity: 0; }
+.spin i::before { content: ""; position: absolute; top: 0; left: 50%; width: 8px; height: 8px; margin-left: -4px; border-radius: 50%; background: #fff; }
+.spin i:nth-child(2) { animation-delay: 0.18s; }
+.spin i:nth-child(3) { animation-delay: 0.36s; }
+.spin i:nth-child(4) { animation-delay: 0.54s; }
+.spin i:nth-child(5) { animation-delay: 0.72s; }
+@keyframes orbit {
+  0% { transform: rotate(0deg); opacity: 1; }
+  70% { transform: rotate(360deg); opacity: 1; }
+  100% { transform: rotate(405deg); opacity: 0; }
+}
+
+/* 2 modern crash ------------------------------------------------------------ */
+.bsod { background: #0a64bf; color: #fff; padding: 9vh 9vw; }
+.bsod .face { font-size: clamp(90px, 16vw, 220px); line-height: 1; font-weight: 300; }
+.bsod p { margin: 0; }
+.bsod .b1 { font-size: clamp(20px, 2.6vw, 36px); margin-top: 3vh; max-width: 900px; line-height: 1.3; }
+.bsod .b2 { font-size: clamp(20px, 2.6vw, 36px); margin-top: 3vh; }
+.bsod .b3 { display: flex; gap: 22px; margin-top: 4vh; align-items: flex-start; }
+.bsod .b3 p { font-size: clamp(13px, 1.2vw, 17px); max-width: 520px; line-height: 1.4; }
+.bsod .small { margin-top: 10px !important; opacity: 0.95; }
+.qr { width: clamp(84px, 9vw, 130px); height: auto; image-rendering: pixelated; border: 4px solid #fff; background: #fff; }
+
+/* 3 classic crash -------------------------------------------------------------- */
+.classic { background: #0000aa; color: #cfcfcf; padding: 4vh 5vw; font-family: "Lucida Console", "Courier New", monospace; }
+.classic pre { margin: 0; white-space: pre-wrap; font: inherit; font-size: clamp(12px, 1.5vw, 19px); line-height: 1.35; }
+
+/* 4 terminal ------------------------------------------------------------------ */
+.term { background: #0c0c0c; color: #c8e6c9; padding: 12px 16px; font-family: "Cascadia Mono", "Fira Code", Menlo, Consolas, monospace; display: flex; align-items: flex-end; }
+.term .log { margin: 0; width: 100%; font: inherit; font-size: clamp(12px, 1.3vw, 16px); line-height: 1.35; white-space: pre; overflow: hidden; }
+
+/* 5 sheet ---------------------------------------------------------------------- */
+.sheet { background: #fff; color: #222; display: flex; flex-direction: column; font-size: 14px; }
+.sheet .bar { background: #1e7a46; color: #fff; padding: 10px 16px; display: flex; gap: 22px; align-items: baseline; }
+.sheet .bar span { opacity: 0.9; font-size: 13px; }
+.sheet .fx { display: flex; border-bottom: 1px solid #d0d0d0; background: #f6f6f6; }
+.sheet .name { width: 70px; padding: 6px 10px; border-right: 1px solid #d0d0d0; background: #fff; font-weight: 600; }
+.sheet .formula { padding: 6px 12px; font-family: Consolas, monospace; }
+.sheet .gridwrap { flex: 1; overflow: hidden; }
+.sheet table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+.sheet th { background: #efefef; border: 1px solid #d6d6d6; font-weight: 500; color: #555; padding: 4px 6px; font-size: 12px; }
+.sheet td { border: 1px solid #e3e3e3; padding: 4px 8px; white-space: nowrap; overflow: hidden; }
+.sheet td.n { text-align: right; font-variant-numeric: tabular-nums; }
+.sheet td.hd { background: #f3f8f4; font-weight: 600; }
+.sheet td.sel { outline: 2px solid #1e7a46; outline-offset: -2px; background: #e8f4ec; }
+.sheet .tabs { background: #efefef; border-top: 1px solid #d0d0d0; display: flex; gap: 2px; padding: 4px 10px 0; font-size: 13px; }
+.sheet .tabs span { padding: 5px 16px; }
+.sheet .tabs .on { background: #fff; border: 1px solid #d0d0d0; border-bottom: 0; font-weight: 600; }
+
+/* 6 code ----------------------------------------------------------------------- */
+.code { background: #1e1e1e; color: #d4d4d4; display: flex; font-family: "Cascadia Mono", Menlo, Consolas, monospace; font-size: 15px; }
+.code .side { width: 230px; background: #252526; padding: 12px 8px; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; }
+.code .side p { margin: 4px 0; color: #ccc; }
+.code .side .i { padding-left: 14px; }
+.code .side .i2 { padding-left: 30px; }
+.code .side .on { background: #37373d; }
+.code .main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.code .tabs { display: flex; background: #2d2d2d; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; }
+.code .tabs span { padding: 9px 18px; color: #999; }
+.code .tabs .on { background: #1e1e1e; color: #fff; border-top: 2px solid #3794ff; }
+.code .lines { flex: 1; overflow: hidden; padding: 10px 0; white-space: pre; line-height: 1.55; }
+.code .num { display: inline-block; width: 52px; text-align: right; padding-right: 22px; color: #6e7681; }
+.code .k { color: #c586c0; } .code .s { color: #ce9178; } .code .c { color: #6a9955; } .code .t { color: #4ec9b0; }
+.code .status { background: #007acc; color: #fff; display: flex; gap: 24px; padding: 4px 14px; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; }
+
+/* 7 email ----------------------------------------------------------------------- */
+.mail { background: #f3f3f5; color: #222; display: flex; font-size: 14px; }
+.mail .folders { width: 190px; background: #fff; border-right: 1px solid #ddd; padding: 14px; }
+.mail .folders p { margin: 4px 0; padding: 7px 10px; border-radius: 6px; }
+.mail .folders .on { background: #e6eefc; font-weight: 600; }
+.mail .cnt { float: right; font-style: normal; color: #2563eb; }
+.mail .list { width: 38%; max-width: 520px; border-right: 1px solid #ddd; background: #fff; overflow: hidden; }
+.mail .row { padding: 10px 14px; border-bottom: 1px solid #eee; display: grid; gap: 2px; }
+.mail .row span { font-size: 14px; }
+.mail .row em { font-style: normal; font-size: 12px; color: #777; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mail .row.un b, .mail .row.un span { font-weight: 700; }
+.mail .row.sel { background: #e6eefc; }
+.mail .prev { flex: 1; padding: 28px 34px; background: #fff; }
+.mail .prev h2 { margin: 0 0 8px; font-size: 24px; }
+.mail .prev .from { color: #666; margin: 0 0 22px; }
+.mail .prev .body { white-space: pre-line; font-size: 16px; line-height: 1.5; }
+
+/* 8 defrag ---------------------------------------------------------------------- */
+.defrag { background: #008080; display: flex; align-items: center; justify-content: center; font-family: Tahoma, "Segoe UI", sans-serif; }
+.defrag .win { width: min(880px, 92vw); background: #c0c0c0; border: 2px solid #fff; box-shadow: 3px 3px 0 #000; padding: 4px; color: #000; }
+.defrag .title { background: #000080; color: #fff; padding: 4px 8px; font-weight: 700; margin: -4px -4px 10px; }
+.defrag p { margin: 6px 10px; }
+.defrag .sm { font-size: 13px; }
+.defrag .blocks { margin: 10px; padding: 4px; background: #fff; border: 2px inset #808080; display: grid; grid-template-columns: repeat(46, 1fr); gap: 2px; }
+.defrag .blocks i { aspect-ratio: 1; background: #0000cc; }
+.defrag .blocks .k0 { background: #0000cc; } .defrag .blocks .k1 { background: #ff0000; } .defrag .blocks .k2 { background: #fff; border: 1px solid #aaa; }
+.defrag .blocks .flash { background: #00ffff; }
+.defrag .meter { margin: 10px; height: 22px; background: #fff; border: 2px inset #808080; }
+.defrag .meter i { display: block; height: 100%; background: repeating-linear-gradient(90deg, #000080 0 10px, #c0c0c0 10px 12px); width: 0; }
+.defrag .legend { margin: 8px 10px 10px; font-size: 13px; }
+.defrag .legend b { display: inline-block; width: 12px; height: 12px; margin: 0 4px 0 12px; vertical-align: -1px; border: 1px solid #555; }
+.defrag .legend .a { background: #0000cc; } .defrag .legend .b { background: #f00; } .defrag .legend .c { background: #fff; }
+
+/* 9 dashboard --------------------------------------------------------------------- */
+.dash { background: #0d1117; color: #e6edf3; padding: 22px 26px; display: flex; flex-direction: column; gap: 18px; }
+.dash .head { display: flex; gap: 24px; align-items: baseline; font-size: 20px; }
+.dash .ok { color: #3fb950; font-size: 15px; }
+.dash .when { margin-left: auto; color: #8b949e; font-size: 14px; font-variant-numeric: tabular-nums; }
+.dash .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.dash .card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; }
+.dash h3 { margin: 0; font-size: 14px; font-weight: 500; color: #8b949e; }
+.dash .val { font-size: 34px; font-weight: 600; margin: 4px 0 8px; font-variant-numeric: tabular-nums; }
+.dash canvas { width: 100%; height: 110px; display: block; }
+.dash .feed { flex: 1; background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; font-family: "Cascadia Mono", Menlo, Consolas, monospace; font-size: 13px; color: #9fb1c1; overflow: hidden; }
+.dash .feed div { padding: 3px 0; }
+
+/* 10 call ------------------------------------------------------------------------- */
+.call { background: #1b1b1f; color: #fff; display: flex; flex-direction: column; }
+.call .banner { background: #4a3b00; color: #ffd866; padding: 10px; text-align: center; font-size: 15px; display: flex; gap: 12px; justify-content: center; align-items: center; }
+.call .ring { width: 16px; height: 16px; border-radius: 50%; border: 3px solid rgba(255, 216, 102, 0.3); border-top-color: #ffd866; animation: rot 0.9s linear infinite; }
+@keyframes rot { to { transform: rotate(360deg); } }
+.call .tiles { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 10px; padding: 12px; min-height: 0; }
+.call .tile { background: #2a2a30; border-radius: 12px; position: relative; display: flex; align-items: center; justify-content: center; border: 3px solid transparent; }
+.call .tile.talk { border-color: #5b9dff; }
+.call .tile span { position: absolute; left: 12px; bottom: 10px; font-size: 14px; background: rgba(0, 0, 0, 0.5); padding: 2px 8px; border-radius: 6px; }
+.call .av { width: clamp(60px, 9vw, 120px); aspect-ratio: 1; border-radius: 50%; background: #5b6b8a; display: flex; align-items: center; justify-content: center; font-size: clamp(28px, 4vw, 54px); }
+.call .t1 .av { background: #8a5b72; } .call .t2 .av { background: #5b8a72; } .call .t3 .av { background: #8a7a5b; } .call .t4 .av { background: #6b5b8a; }
+.call .ctrl { display: flex; gap: 16px; justify-content: center; padding: 14px; }
+.call .ctrl b { width: 52px; height: 52px; border-radius: 50%; background: #3a3a42; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+.call .ctrl .end { background: #d13438; }
+
+/* 11 printer ---------------------------------------------------------------------- */
+.print { background: #e9edf3; display: flex; align-items: center; justify-content: center; }
+.print .win { width: min(560px, 92vw); background: #fff; border: 1px solid #b6bcc6; border-radius: 8px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25); padding: 0 0 18px; color: #222; }
+.print .title { padding: 10px 16px; border-bottom: 1px solid #e1e5eb; font-weight: 600; }
+.print p { margin: 12px 18px 0; }
+.print .sm { font-size: 13px; color: #666; }
+.print .meter { margin: 16px 18px 0; height: 14px; background: #e5e9f0; border-radius: 7px; overflow: hidden; }
+.print .meter i { display: block; width: 1%; height: 100%; background: #2563eb; border-radius: 7px; transition: width 1s; }
+.print .btns { display: flex; justify-content: flex-end; gap: 10px; padding: 16px 18px 0; }
+.print button { font: inherit; padding: 6px 18px; border: 1px solid #b6bcc6; background: #f5f6f8; border-radius: 4px; }

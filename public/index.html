@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Boss Key: the panic button for your screen</title>
+    <meta name="description" content="Pick a fake screen (system update, crash screen, compiling terminal, spreadsheet and more), press its hotkey, and look busy. Free, no sign-up." />
+    <meta name="theme-color" content="#111827" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔑%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/screens.css" />
+    <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+    <script defer src="/_vercel/insights/script.js"></script>
+  </head>
+  <body>
+    <main class="wrap" id="menu">
+      <header>
+        <h1>🔑 Boss Key</h1>
+        <p class="lead">The panic button for your screen. Pick a fake screen, hit its key, and look extremely busy.</p>
+        <p class="how">
+          Press a <kbd>number</kbd> or <kbd>Q</kbd> (or click a card) to start.
+          Press <kbd>Esc</kbd> or <b>double-click</b> to come back.
+          Press another screen's key to switch.
+        </p>
+      </header>
+
+      <section class="opts" aria-label="Options">
+        <label><input type="checkbox" id="optFull" checked /> Go fullscreen</label>
+        <label>Tab disguise
+          <select id="optDisguise">
+            <option value="">Keep this tab as it is</option>
+            <option value="Untitled document">Untitled document</option>
+            <option value="Inbox (3)">Inbox (3)</option>
+            <option value="Q3 forecast final v7 - Spreadsheet">Q3 forecast final v7 - Spreadsheet</option>
+            <option value="Loading…">Loading…</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="grid" id="grid" aria-label="Fake screens"></section>
+
+      <footer>
+        <p>For fun. The screens are original lookalikes: no logos and no real product names, and nothing here collects anything. If you are caught anyway, you did not get this link from us.</p>
+        <p class="small">No cookies, no accounts. The hosted page only counts anonymous page views.</p>
+      </footer>
+    </main>
+
+    <div id="fake" aria-hidden="true"></div>
+
+    <script src="/data.js"></script>
+    <script src="/screens.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>

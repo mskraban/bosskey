@@ -1,0 +1,31 @@
+:root { font-family: ui-rounded, "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; }
+* { box-sizing: border-box; }
+html { background: #0b0f19; }
+html, body { margin: 0; min-height: 100%; }
+body { background: radial-gradient(circle at 20% 0%, #1f2a44 0%, #111827 55%, #0b0f19 100%) fixed; color: #f3f4f6; }
+
+.wrap { width: min(1180px, 100%); margin: 0 auto; padding: 32px 20px 40px; }
+h1 { margin: 0; font-size: clamp(38px, 6vw, 64px); letter-spacing: 0.01em; }
+.lead { margin: 8px 0 0; font-size: clamp(20px, 2.6vw, 28px); color: #d1d5db; }
+.how { margin: 14px 0 0; font-size: clamp(18px, 2vw, 22px); color: #fbbf24; line-height: 1.6; }
+kbd { display: inline-block; min-width: 1.6em; padding: 1px 9px; border-radius: 8px; border: 2px solid #6b7280; background: #1f2937; color: #fff; font: inherit; font-weight: 700; text-align: center; }
+
+.opts { display: flex; flex-wrap: wrap; gap: 14px 28px; margin: 22px 0 6px; font-size: 20px; color: #d1d5db; align-items: center; }
+.opts input[type="checkbox"] { width: 22px; height: 22px; accent-color: #fbbf24; vertical-align: -4px; margin-right: 8px; }
+.opts select { font: inherit; font-size: 19px; margin-left: 8px; padding: 9px 12px; border-radius: 12px; border: 2px solid #4b5563; background: #1f2937; color: #fff; max-width: 100%; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 18px; }
+.card { position: relative; text-align: left; font: inherit; color: inherit; padding: 20px 20px 22px; border-radius: 20px; border: 2px solid #374151; background: rgba(255, 255, 255, 0.05); cursor: pointer; transition: transform 0.1s, border-color 0.15s, background 0.15s; }
+.card:hover { border-color: #fbbf24; background: rgba(251, 191, 36, 0.09); transform: translateY(-2px); }
+.card:active { transform: translateY(1px); }
+.card:focus-visible { outline: 4px solid #60a5fa; outline-offset: 3px; }
+.card .icon { font-size: 44px; line-height: 1; }
+.card h2 { margin: 10px 0 6px; font-size: 26px; }
+.card p { margin: 0; font-size: 18px; line-height: 1.4; color: #cbd5e1; }
+.card .key { position: absolute; top: 16px; right: 16px; }
+
+footer { margin-top: 34px; color: #9ca3af; font-size: 17px; line-height: 1.5; max-width: 780px; }
+footer p { margin: 0 0 8px; }
+footer .small { font-size: 15px; }
+
+@media (max-width: 640px) { .card .key { display: none; } }
